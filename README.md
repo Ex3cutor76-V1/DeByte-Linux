@@ -1,3 +1,5 @@
+![Logo da DeByte Linux](debyte.gif)
+
 # DeByte Linux 
 Uma distribuição Linux baseada em Debian Trixie (Testing), com filosofia CLI-First Funcional (CFF) e foco em privacidade, segurança e simplicidade.
 
