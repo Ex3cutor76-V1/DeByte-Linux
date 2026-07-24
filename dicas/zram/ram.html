@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do zram:</h1>
+<p></p>
+<h3>O ZRAM é uma tecnologia que cria uma área de memória comprimida dentro da RAM. Quando o sistema precisa liberar memória, ele pode mover páginas menos usadas para essa área comprimida em vez de acessar uma partição de swap no disco. Isso pode melhorar a responsividade do sistema, principalmente em computadores com pouca memória RAM.
+</h3>
+<pre>
+# Algoritmo de compressão — zstd é o mais rápido e eficiente
+ALGO=zstd
+# Usa 50% da RAM como zram swap (ex: 4GB RAM = ~2GB extras disponíveis)
+PERCENT=50
+</pre>
+</body>
+</html>

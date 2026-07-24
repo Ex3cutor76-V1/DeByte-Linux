@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura do sistema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Estrutura do sistema: A base Linux</h1>
+<p></p>
+<h3>O DeByte, por ser uma distribuição Linux baseada em Debian, segue o padrão tradicional da hierarquia de diretórios do Linux (Filesystem Hierarchy Standard - FHS). Essa organização define onde ficam arquivos do sistema, configurações, programas, dispositivos e dados dos usuários.
+</h3>
+<pre>
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── initrd.img
+├── lib
+├── lib64
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+├── var
+└── vmlinuz
+</pre>
+<h2>/:</h2>
+<h3>A "/" é a raiz do sistema, no caso, ela é o ponto inicial de tudo.</h3>
+<p></p>
+<h2>/bin:</h2>
+<h3>Nesta pasta contém os comandos do sistema como "ls", "chmod", "mkdir" entre outros.</h3>
+<p></p>
+<h2>/sbin:</h2>
+<h3>Nesta pasta contém os comandos administrativos do sistem como o fdisk, reboot, mount, etc.</h3>
+<p></p>
+<h2>/boot:</h2>
+<h3>São os arquivos necessários para iniciar o sistema.</h3>
+<p></p>
+<h2>/dev:</h2>
+<h3>Contém os dispositivos tratados como arquivos, por exemplo: o sda sendo tratado como o HD ou SSD, sdb como o pen drive, etc.</h3>
+<p></p>
+<h2>/etc:</h2>
+<h3>Contém as configurações do sistema, como por exemplo o /etc/i3status.conf do i3status, /etc/apt/sources.list do apt e entre outros.</h3>
+<p></p>
+<h2>/home:</h2>
+<h3>É o diretório do usuário.</h3>
+<p></p>
+<h2>/root:</h2>
+<h3>É o "home" só que do administrador.</h3>
+<p></p>
+<h2>/lib e /lib64:</h2>
+<h3>São as bibliotécas essenciais usada pelos programas.</h3>
+<p></p>
+<h2>/media:</h2>
+<h3>Contém a montagem automática de dispositivos removiveis.</h3>
+<p></p>
+<h2>/mnt:</h2>
+<h3>Serve para a montagem manual (Exemplo: mount /dev/sdb1 /mnt)</h3>
+<p></p>
+<h2>/opt:</h2>
+<h3>São programas opcionais instalados no sistema, um exemplo? O único instalado de forma opcional no DeByte é o tor browser
+    que está localizado nessa pasta.
+</h3>
+<p></p>
+<h2>/proc:</h2>
+<h3>São os sistemas de arquivos virtual criado pelo kernel, mostrando informações do sistema em tempo real, exemplo: para a CPU
+    seria /proc/cpuinfo, para memória RAM é /proc/meminfo e para processos /proc/[PID].
+</h3>
+<p></p>
+<h2>/sys:</h2>
+<h3>Expõe informações sobre o hardware e kernel.</h3>
+<p></p>
+<h2>/run:</h2>
+<h3>Armazena os dados temporários usados durante a execução.</h3>
+<p></p>
+<h2>/tmp:</h2>
+<h3>Arquivos temporários.</h3>
+<p></p>
+<h2>/usr:</h2>
+<h3>Aqui contém os programas e recursos instalados.</h3>
+<p></p>
+<h2>/var:</h2>
+<h3>Aqui contém os dados que mudam constantemente, no caso por aqui você pode encontrar as logs do sistema, por exemplo, 
+    para encontrar as logs é /var/log/, já o cache /var/cache/, enquanto o banco do dpkg  é /var/lib/dpkg/.
+</h3>
+<p></p>
+<h2>/lost+found:</h2>
+<h3>Nesta pasta contém arquivos recuperados pelo fsck</h3>
+<p></p>
+<h2>/srv:</h2>
+<h3>São os dados fornecidos por serviços.</h3>
+<p></p>
+<h2>vmlinuz:</h2>
+<h3>Este é o próprio Kernel Linux que durante o boot a sequencia é:</h3>
+<pre>Grub --> vmlinuz --> Linux Kernel</pre>
+<p></p>
+<h2>initrd.img:</h2>
+<h3>É o initramfs, ele é o que carrega os drivers e prepara o sistema antes de montar a raiz real.</h3>
+
+</body>
+</html>

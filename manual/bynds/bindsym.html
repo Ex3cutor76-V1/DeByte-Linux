@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bindsym</title>
+
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Bindsym: Os atalhos de teclado no DeByte</h1>
+<p></p>
+<h3>No DeByte, apesar do foco principal ser o terminal, o sistema também é controlado por atalhos de teclado. Esses atalhos são chamados de bindsym e são fornecidos pelo i3, a Window Manager principal do sistema. Eles permitem abrir aplicativos, controlar janelas, navegar entre espaços de trabalho e administrar a sessão gráfica sem depender apenas de comandos.
+</h3>
+<p></p>
+<h4>Caso você queira mudar alguma configuração de bindsym use: nano ~/.config/i3/config</h4>
+<h2>Bindsym usadas:</h2>
+<h4>Aviso: Normalmente a tecla "mod" é na verdade a técla Windows ou em alguns computadores chamado de tecla 
+    "super"
+</h4>
+<h3>Bindsym de aplicativos:</h3>
+<pre>
+mod+enter --> Abre o Terminator
+mod+d --> Abre o rofi (Launcher de menu)
+mod+e --> Abre o XFE (Gerenciador de arquivos)
+mod+f --> Tela cheia
+</pre>
+<h3>Bindsym do sistema:</h3>
+<pre>mod+Shift+q --> Fecha aplicativo
+mod+Shift+e --> Desliga computador
+mod+Shifr+r --> Reinicia computador
+mod+Shift+c --> Reload do i3
+mod+Shift+i --> Restart do i3
+</pre>
+<h3>Bindsym de navegação entre janelas:</h3>
+<pre>
+Avançado: Estilo VIM
+mod+h --> Foco na esquerda
+mod+j --> Foco para baixo
+mod+k --> Foco para cima
+mod+l --> Foco na direita
+
+Simples:
+mod+seta para a esquerda --> Foco na esquerda 
+mod+seta para baixo --> Foco para baixo
+mod+seta para cima --> Foco para cima
+mod+seta para a direita --> Foco na direita
+</pre>
+<h3>Bindsym de movimentação de janelas:</h3>
+<pre>
+mod+Shift+h --> Mover janela para a esquerda
+mod+Shift+j --> Mover janela para baixo
+mod+Shift+k --> Mover janela para cima
+mod+Shift+l --> Mover janela para a direita
+</pre>
+<h3>Bindsym de layout:</h3>
+<pre>
+mod+s --> Janelas empilhadas
+mod+w --> Janelas em abas
+mod+t --> Alterna entre divisão vertical e horizontal
+mod+Shift+space --> Janela flutuante
+mod+space --> Alterna o foco entre janelas do layout atual
+</pre>
+<h3>Bindsym de workspace's:</h3>
+<h4>O que são Workspaces?: São como espaços de trabalho, que organiza separadamente cada janela e espaço 
+    separado, por exemplo: Você pode ter uma workspace para navegador e outra para terminal.
+</h4>
+<pre>
+mod+1 --> Ir para a workspace 1
+mod+2 --> Ir para a workspace 2
+mod+3 --> Ir para a workspace 3
+mod+4 --> Ir para a workspace 4
+mod+5 --> Ir para a workspace 5
+mod+Shift+N° --> Mover janela para a workspace...
+
+obs: Troque o N° por números de 1 até 5 (Que são a numeração das workspaces)
+</pre>
+<h3>Bindsym de modo:</h3>
+<pre>
+mod+r --> Entra no modo resize
+mod+h/j/k/l ou setas --> Redimensiona janelas
+enter ou esc --> Sair do modo resize
+</pre>
+</body>
+</html>

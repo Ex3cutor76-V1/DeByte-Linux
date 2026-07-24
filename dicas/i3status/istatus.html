@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i3status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração i3status:</h1>
+<p></p>
+<h3>O i3status é um dos mais importantes no sistema do DeByte, afinal ele é a status bar
+    o que significa que ele mostra status da sua bateria, disco rígido (HD ou SSD), RAM e até
+    diz horário e data e se você está online ou offline.
+</h3>
+<p></p>
+<h2>Script de configuração padrão do i3status:</h2>
+<pre>
+
+# Configurações gerais
+general {
+        colors = false
+}
+
+# Ordem dos módulos
+order += "read_file net"
+order += "battery 0"
+order += "memory"
+order += "disk /"
+order += "load"
+order += "tztime local"
+
+# Neste módulo ele lê o script debyte-net, ajudando o i3status a identificar se você está em LAN ou WIFI
+read_file net {
+        path = "/tmp/debyte-net"
+}
+
+# Exibe informação da bateria
+battery 0 {
+        format = " BAT: %status %percentage "
+        format_down = " BAT: SEM BATERIA "
+        status_chr = "↑"
+        status_bat = "↓"
+        status_unk = "?"
+        status_full = "FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 15
+}
+
+# Mostra o uso de memória RAM
+memory {
+        format = " RAM: %used / %total "
+        threshold_degraded = "10%"
+        threshold_critical = "5%"
+}
+
+# Mostra o espaço do disco rígido
+disk "/" {
+        format = " HDD: %avail "
+}
+
+# Mostra o load average do Linux
+load {
+        format = " CPU: %1min "
+}
+
+# Mostra data e hora
+tztime local {
+        format = " %d/%m/%Y %H:%M "
+}
+</pre>
+
+</body>
+</html>

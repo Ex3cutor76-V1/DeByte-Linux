@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debyte-net</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do debyte-net</h1>
+<p></p>    
+<h3>O debyte-net é um script que foi adicionado para auxiliar o i3status a identificar redes, no caso
+    é esse script que permite o i3status conseguir identificar o que é LAN e o que é WIFI e quando você
+    está Offline.
+</h3>
+<pre>
+#!/bin/bash
+# Descobre a conexão e guarda na variável "DEVICE"
+DEVICE=$(nmcli -t -f DEVICE,TYPE,STATE device 2>/dev/null | awk -F: '$3=="connected"{print $1":"$2;exit}')
+# Caso não exista conexão é OFF
+if [ -z "$DEVICE" ]; then
+    echo "● OFF"
+    exit
+fi
+TYPE=${DEVICE##*:}
+case "$TYPE" in
+# Caso se conecte em rede sem fio é WIFI
+    wifi)
+        SSID=$(nmcli -t -f ACTIVE,SSID dev wifi 2>/dev/null | awk -F: '$1=="yes"{print $2;exit}')
+        echo "● WIFI (${SSID})"
+        ;;
+# Caso se conecte em rede cabeada é LAN
+    ethernet)
+        echo "● LAN"
+        ;;
+# Caso se conecte em outro tipo de rede é ON
+    *)
+        echo "● ON"
+        ;;
+esac
+</pre>
+</body>
+</html>

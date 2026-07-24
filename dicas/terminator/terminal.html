@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do terminator:</h1>
+<h3>O terminator é o terminal principal do DeByte, sendo ele o segundo software a ser aberto no
+    DeByte, ele é sua ferramenta mais poderosa e a que você mais vai usar durante o uso do DeByte,
+    afinal, o terminal será sua principal área de trabalho.
+</h3>
+<pre>
+# Configurações globais do Terminator
+[global_config]
+  borderless = True
+  handle_size = 0
+  maximise = True
+# Atalhos personalizados
+[keybindings]
+# Perfis que definem a aparência e comportamento dos terminais
+[profiles]
+  [[default]]
+    background_color = "#000000"
+    cursor_color = "#ffffff"
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = disabled
+# Os layouts que descrevem como os terminais são organizados
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+# Áreas destinadas aos plugins do Terminator
+[plugins]
+</pre>   
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network-manager</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Network-manager: Redes no Linux</h1>
+<p></p>
+<h3>O NetworkManager é um serviço responsável pelo gerenciamento das conexões de rede no Linux. Ele permite configurar e controlar conexões como Wi-Fi, Ethernet, VPNs e interfaces virtuais sem a necessidade de editar arquivos de configuração manualmente. No DeByte, ele é utilizado para facilitar o gerenciamento de redes tanto pelo terminal quanto pela interface nmtui.
+</h3>
+<p></p>
+<h2>Comandos do network-manager: Os mais usados</h2>
+<pre>
+obs: Os "device" você pode abreviar para "dev"
+
+nmcli device status --> Ver interfaces.
+nmcli connection show --> Ver conexões.
+nmcli device wifi list --> Ver redes wifi (Mas em algumas versões funciona o: nmcli dev wifi)
+nmcli device wifi connect "SSID" password "senha" --> Conectar-se a rede wifi.
+nmcli connection up "nome" --> Ativar conexão.
+nmcli connection down "nome" --> Desativar conexão.
+nmcli device show Interface --> Ver detalhes de uma interface.
+sudo systemctl restart NetworkManager --> Reiniciar o NetworkManager com o systemd.
+nmcli device connect eth0 --> Conecta na rede via cabo.
+nmcli device disconnect eth0 --> Desconecta da rede via cabo.
+</pre>
+<h2>Tipos de interface:</h2>
+<pre>
+lo --> Interface interna da própria máquina --> Loopback
+eth0, enp3s0, eno1 --> Placa de rede cabeada --> Ethernet
+wlan0 ou wlp2s0 --> Interface de rede sem fio --> Wi-fi
+br0 --> Junta várias interfaces em uma rede virtual --> Bridge (Ou ponte)
+bond0 --> Une várias placas físicas para redundância ou mais desempenho --> Bonding
+eth0.100 ou vlan100 --> Interface virtual com separação lógica de redes --> VLAN
+tun0 ou tap0 --> Interface criada por VPN's --> Túnel VPN
+wg0 --> Interface de VPN WireGuard --> WireGuard VPN
+ipsec0 (Vareia) --> Interface relacionada a túneis IPsec --> IPsec 
+wwan0 --> Interface de modem 3G/4G/5G --> Modem celular
+bnep0 --> Rede usando Bluethooth --> Bluethooth PAN
+veth0 --> Par de interfaces virtuais usada por containers --> Virtual Ethernet (veth)
+docker0 --> Rede virtual criada pelo Docker --> Docker Bridge
+eth0 (Dentro do container) --> Interface virtual dentro de containers --> Interface container
+tap0 --> Interface virtual de camada 2 --> TAP
+tun0 --> Interface virtual de camada 3 --> TUN
+</pre>
+<h3>Se quiser descobrir qual a sua interface use: <pre>ip a</pre></h3>
+<h3>E caso não queira escrever muitos comandos existe a interface gráfica do network-manager, use: 
+    <pre>nmtui</pre>
+</h3>
+
+</body>
+</html>

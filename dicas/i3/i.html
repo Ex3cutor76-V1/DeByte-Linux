@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i3</title>
+
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Configurações do i3:</h1>
+<p></p>
+<h3>O DeByte é movido a comandos, mas também teclados e quem permite isso é o próprio i3, que bem, ele
+    é um window manager principal do DeByte, ele que permite os atalhos de teclado do sistema, para o user
+    não depender tanto de comandos para tais tarefas que podem até ser simples (Por exemplo: Abrir o firefox)</h3>
+<p></p>
+<h2>Explicação das configurações do i3:</h2>
+<h4>Aviso: Os scripts irão ser explicados um de cada vez para melhor compreensão.</h4>
+
+<pre>
+# DeByte Linux — i3 config por usuário
+# Mod4 = tecla Super (Win)
+set $mod Mod4
+
+font pango:monospace 8
+
+default_border pixel 0
+default_floating_border pixel 0
+smart_borders on
+
+# Autostart
+exec --no-startup-id nm-applet
+exec --no-startup-id udiskie
+exec_always --no-startup-id bash -c "until nmcli general status >/dev/null 2>&1; do sleep 1; done; echo '● OFF' > /tmp/debyte-net; while true; do /usr/local/bin/debyte-net > /tmp/debyte-net; sleep 5; done"
+exec --no-startup-id bash -c "sleep 1 && exec terminator"
+
+# Volume
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# Atalhos principais
+bindsym $mod+Return exec terminator
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec rofi -show drun -theme debyte-theme
+bindsym $mod+e exec xfe
+bindsym $mod+Shift+e exec --no-startup-id systemctl poweroff
+bindsym $mod+Shift+r exec --no-startup-id systemctl reboot
+bindsym $mod+f fullscreen toggle
+
+# Navegação entre janelas (estilo vim)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Mover janelas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+t layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# Workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+
+# Mover janela para workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+
+# Reload e restart
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+i restart
+
+# Resize
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Barra
+bar {
+    status_command i3status --config /etc/i3status.conf
+    position bottom
+    colors {
+        background #000000
+        statusline #ffffff
+        separator  #666666
+    }
+}
+</pre>
+</body>
+</html>

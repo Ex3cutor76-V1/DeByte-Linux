@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFW</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>UFW: O firewall</h1>
+<p></p>
+<h3>O UFW (Uncomplicated Firewall) é uma ferramenta de gerenciamento de firewall no Linux. No DeByte, ele vem pré-instalado como uma opção de proteção básica para o usuário. Ele fornece uma interface simplificada para configurar regras de filtragem de rede, utilizando sistemas de firewall de baixo nível como o Netfilter, que inclui tecnologias como iptables e nftables.
+</h3>
+<p></p>
+<h2>O que é um firewall?:</h2>
+<h3>O Firewall é um sistema que filtra o tráfego de rede com base em regras.
+    Ele pode controlar conexões de entrada e saída, permitindo ou bloqueando determinados tipos de comunicação.</h3>
+<p></p>
+<h2>O que é uma regra no firewall?:</h2>
+<h3>Uma regra é um tipo de instrução, por exemplo:</h3>
+<h3>Se alguém tentar acessar a porta 80(HTTP), permita.</h3>
+<h3>Se alguém tentar acessar a porta 23(Telnet), bloqueia.</h3>
+<p></p>
+<h2>O que significa "política padrão"?:</h2>
+<h3>Além das regras, o firewall possui uma política padrão (default policy), que define 
+    o que fazer quando nenhuma regra corresponde ao tráfego.
+</h3>
+<p></p>
+<h2>Comandos do ufw:</h2>
+<pre>
+estrutura: sudo ufw comando
+
+comandos:
+
+enable --> Ativar firewall.
+disable --> Desativar firewall.
+default ARG --> Define política padrão do firewall (exemplo: pemitir ou negar por padrão).
+logging LEVEL --> Define nível de registro (Ou logs) do firewall.
+allow ARGS --> Adiciona uma regra para permitir tráfego.
+deny ARGS --> Adiciona uma regra para bloquear o tráfego.
+rejects ARGS --> Adiciona uma regra para rejeitar tráfego.
+limit ARGS --> Adiciona uma regra para limitar conexões.
+delete RULE/NUM --> Remove regra específica ou uma regra pelo número.
+insert NUM RULE--> Insere uma regra em uma posição específica da lista de regras.
+prepend RULE --> Adicionar uma regra no início da lista de regras.
+route RULE --> Adiciona regra de roteamento.
+route delete RULE/NUM --> Remove uma regra de roteamento.
+route insert NUM RULE --> Insere uma regra de roteamento em uma posição específica.
+reload --> Recarrega regras do firewall sem desativá-lo.
+reset --> Restaura o firewall para as configurações padrão. Removendo todas as regras.
+status --> Mostra estado atual do firewall.
+status numbered --> Mostra estado atual do firewall com regras numeradas.
+status verbose --> Mostra informações detalhadas sobre o firewall.
+show ARG --> Exibe um relatório ou informação específica do firewall.
+version --> Mostra a versão do firewall.
+
+Comandos de perfil de aplicações:
+
+app list --> Lista perfis de aplicações disponíveis.
+app info PROFILE --> Mostra informações sobre um perfil de aplicação específico.
+app update PROFILE --> Atualiza perfil de aplicação.
+app default ARG --> Define política padrão para perfis de aplicações.
+</pre>
+<h2>Outras informações sobre as variáveis.</h2>
+<h3>ARG é o valor que o comando espera receber (Exemplo: deny, allow, limit, etc.)</h3>
+<h3>ARGS é um ou mais valores (Exemplo: 22, 2222, 443, 80, etc)</h3>
+<h3>PROFILE é o nome do perfil de aplicação (Exemplo: OpenSSH, Yahoo, etc.)</h3>
+<h3>RULE é uma regra completa do firewall (Exemplo: allow from IP/24 to any port 22.)</h3>
+<h3>NUM é o número da regra (Exemplo: sudo ufw delete 3)</h3>
+</body>
+</html>

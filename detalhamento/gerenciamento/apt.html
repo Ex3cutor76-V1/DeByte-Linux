@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de pacotes</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>APT: O gerenciador de pacotes padrão do sistema</h1>
+<p></p>
+<h3>No DeByte o gerenciador de pacotes principal é o APT ou também chamado por alguns de Advanced Package Tool, que é 
+    um gerenciador de pacotes, que é responsável por instalar, remover, atualizar e gerenciar programas, resolvendo assim 
+    automaticamente as dependências necessárias para o funcionamento de cada pacote.
+</h3>
+<p></p>
+<h2>Como o APT funciona?:</h2>
+<h3>Os programas distribuidos para Debian normalmente são empacotados como .deb e o próprio
+    APT trabalha em conjunto com o dpkg que é uma ferramenta de baixo nível responsável por 
+    instalar esses pacotes. No caso o fluxo seria este:
+</h3>
+<pre>
+Repositórios
+    |
+    |
+    V
+   APT
+    | 
+    |
+    V
+   dpkg
+    |
+    |
+    V
+Sistemas de arquivos
+</pre>
+<h2>Comandos do apt:</h2>
+<pre>
+sudo apt update --> Baixa a lista mais recente de pacotes disponíveis nos repositórios configurados.
+sudo apt upgrade --> Atualiza todos os pacotes instalados para suas versões mais recentes.
+sudo apt full-upgrade --> Permite instalar dependências novas e remover pacotes antigos, além de atualizar o sistema inteiro.
+sudo apt install nome-do-pacote --> Instala um programa.
+sudo apt remove nome-do-pacote --> Remove o programa, mas, deixa os arquivos de configuração.
+sudo apt purge nome-do-programa --> Remove completamente.
+sudo apt autoremove --> Limpa dependências não utilizadas.
+sudo apt clean --> Limpa cache.
+sudo apt autoclean --> Remove apenas os pacotes do cache que não podem mais ser baixados dos repositórios.
+apt search nome-do-programa --> Procura programas.
+apt show nome-do-programa --> Exibe informações.
+apt list --installed --> Lista de pacotes instalados.
+</pre>
+<h3>Mas também é possível instalar os pacotes .deb com o dpkg:</h3>
+<pre>sudo dpkg -i programa.deb</pre>
+<h3>Entretanto, o dpkg não resolve dependências automaticamente.</h3>
+<h3>E caso queira desinstalar com o dpkg é só usar:</h3>
+<pre>sudo dpkg -r nome-do-programa</pre>
+<h3>Ou remover completamente:</h3>
+<pre>sudo dpkg -P nome-do-programa</pre>
+<h3>Ou</h3>
+<pre>sudo dpkg --purge nome-do-programa</pre>
+<h3>E caso você não saiba o nome do pacote você pode descobrir usando: <pre>dpkg-deb -f programa.deb Package</pre>
+ou se caso ele estiver instalado use: <pre>dpkg -l</pre></h3>
+<p></p>
+<h2>A configuração do APT no DeByte em: /etc/apt/sources.list</h2>
+<pre>
+deb http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ trixie main contrib non-free non-free-firmware
+
+deb http://security.debian.org/debian-security trixie-security main contrib non-free
+deb-src http://security.debian.org/debian-security trixie-security main contrib non-free
+
+deb http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ trixie-updates main contrib non-free non-free-firmware
+</pre>
+
+</body>
+</html>

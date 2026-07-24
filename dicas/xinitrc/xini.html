@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração do xinitrc</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do xinitrc:</h1>
+<p></p>    
+<h3>O xinitrc é o ponto de entrada da sessão gráfica do usuário. Quando o X11 é iniciado pelo comando startx, ele procura o arquivo .xinitrc para saber quais programas devem ser executados, incluindo o window manager principal, que no caso do DeByte é o i3.
+</h3>
+<pre>
+# Apenas inicia o i3
+exec i3 -c ~/.config/i3/config
+</pre>
+</body>
+</html>

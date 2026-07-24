@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rofi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configurações do Rofi:</h1>
+<p></p>
+<h3>O rofi é o launcher de menu que permite com que você acesse os aplicativos com mais facilidade,
+    pois é, simplesmente é com o Rofi que faz com que você evite usar comandos, ele também é uma das
+    ferramentas essenciais do DeByte, uma vez que ele facilita o uso.
+</h3>
+<h2>As duas configurações do rofi:</h2>
+<p></p>
+<h3>Configuração de execução:</h3>
+<pre>
+# Tudo que estiver dentro deste bloco são configurações gerais do rofi
+configuration {
+    modi: "drun,run,window";
+    show-icons: false;
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Janelas";
+}
+@theme "debyte-theme"
+</pre>
+<h3>Configuração de tema:</h3>
+<pre>
+* {
+    background-color:            #000000;
+    text-color:                  #ffffff;
+    border-color:                #ffffff;
+    font:                        "monospace 12";
+}
+window {
+    anchor:                      center;
+    location:                    center;
+    width:                       480px;
+    border:                      2px;
+    padding:                     10px;
+}
+inputbar {
+    children:                    [ prompt, entry ];
+    spacing:                     10px;
+}
+prompt { text-color: #ffffff; }
+entry {
+    placeholder:                 "Executar...";
+    placeholder-color:           #555555;
+}
+listview {
+    lines:                       8;
+    columns:                     1;
+    fixed-height:                true;
+    cycle:                       true;
+    scrollbar:                   false;
+    border:                      0px;
+    margin:                      10px 0px 0px 0px;
+}
+element { padding: 5px; }
+element selected {
+    background-color:            #ffffff;
+    text-color:                  #000000;
+}
+</pre>
+</body>
+</html>

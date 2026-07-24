@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X11 e TTY1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do X11:</h1>
+<p></p>
+<h3>O X11 é a base gráfica utilizada pelo DeByte para executar a interface gráfica. Quando o usuário inicia o ambiente gráfico pelo TTY usando o startx, o X11 é iniciado e executa o arquivo .xinitrc, que por sua vez inicia a Window Manager i3. Sem o X11, a interface gráfica baseada em i3 não poderia funcionar.
+</h3>
+<pre>
+# Se a condição for verdadeira inicia o startx que irá iniciar o i3
+if [ -z "$DISPLAY" ] && [ "${XDG_VTNR:-0}" -eq 1 ]; then
+  exec startx
+fi
+</pre>
+</body>
+</html>

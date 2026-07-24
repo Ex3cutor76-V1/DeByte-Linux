@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Configuração do Bash:</h1>
+<h3>O shell padrão do DeByte é o Bash. O shell é o interpretador responsável por receber os comandos digitados pelo usuário e traduzi-los para ações que o sistema operacional consegue executar.
+</h3>
+<pre>
+# Define como o prompt aparece
+export PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+# Cores no ls
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -lah --color=auto'
+export LS_COLORS='di=34:fi=37:*.zip=31:*.tar=31:*.gz=31:*.xz=31:*.deb=31:*.rpm=31:*.7z=31:*.rar=31:*.sh=02;32:*.txt=37:*.md=37:*.py=37:*.java=37:*.js=37:*.asm=37:*.pdf=37:*.c=37:*.h=37:*.cpp=37:*.rs=37:*.go=37:*.rb=37:*.lua=37:*.php=37:*.html=37:*.css=37:*.jpg=35:*.jpeg=35:*.png=35:*.gif=35:*.bmp=35:*.svg=35:*.ico=35:*.webp=35:*.mp3=33:*.mp4=33:*.wav=33:*.flac=33:*.avi=33:*.mkv=33:*.mov=33:*.webm=33:*.ogg=33:*.opus=33'
+
+# Executa verificações e inicia o tor
+tor() {
+    if [ -d "/opt/tor-browser" ]; then
+        cd /opt/tor-browser && ./start-tor-browser.desktop --detach
+        cd ~
+    elif ls ~/Downloads/tor-browser*.tar.xz 2>/dev/null | head -1 | grep -q "."; then
+        echo "Extraindo Tor Browser..."
+        cd ~/Downloads
+        tar -xJf tor-browser*.tar.xz
+        cd tor-browser
+        ./start-tor-browser.desktop --detach
+        cd ~
+    else
+        echo "Tor Browser nao encontrado."
+        echo "Baixe em: https://www.torproject.org/download/"
+    fi
+}
+# Desliga o computador após digitar o comando "shutdown"
+alias shutdown='sudo systemctl poweroff'
+
+# Editor padrão do DeByte
+export EDITOR="nano"
+export VISUAL="nano"
+
+# Cria pastas padrão do usuário se não existirem
+xdg-user-dirs-update 2>/dev/null
+
+# Mensagem inicial no live system
+debyte_welcome() {
+VERMELHO=$'\033[31m'
+MAGENTA=$'\033[35m'
+RESET=$'\033[0m'
+
+    printf "${VERMELHO}"
+
+    cat <<'LOGO'
+                       $$$$$$$$$$$$$$$$$$$$$$$$
+                 $$$$$$    x              x    $$$$$$
+           $$$$$$         x   &   &   &    x         $$$$$$
+       $$$$              x     &  &  &      x              $$$$
+   $$$$                  x      & & &       x                  $$$$
+       $$$$              x        &         x              $$$$
+           $$$$$$         x       &        x         $$$$$$
+                 $$$$$$    x      &       x    $$$$$$
+                       $$$$$$$$$$$$$$$$$$$$$$$$
+LOGO
+
+    printf "${RESET}\n"
+
+    echo "                         BEM-VINDO AO DEBYTE"
+    printf "  Se quiser usar Tor, use: ${MAGENTA}tor${RESET}\n"
+    echo "  Conecte-se à internet com: nmtui ou nmcli dev wifi"
+    printf "  Instale no HD com: ${VERMELHO}sudo debyte-install${RESET}\n"
+    echo
+}
+
+if [ -e /run/live/medium ] && [ -z "$DEBYTE_WELCOME" ]; then
+    export DEBYTE_WELCOME=1
+    debyte_welcome
+fi
+</pre>    
+
+
+</body>
+</html>

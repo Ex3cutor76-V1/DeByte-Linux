@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GnuPG</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>GnuPG: Criptografia de arquivos</h1>
+<p></p>
+<h3>O GnuPG (GNU Privacy Guard) é uma ferramenta de criptografia instalada no DeByte para permitir que usuários protejam arquivos, criem pares de chaves criptográficas, criptografem dados e verifiquem assinaturas digitais. Ele utiliza o padrão OpenPGP, sendo uma ferramenta bastante usada para segurança e autenticação de arquivos.
+</h3>
+<p></p>
+<h4>Aviso: Só será mostrado os comandos mais usados!</h4>
+<h2>Comandos do GnuPG: Os mais usados</h2>
+<pre>
+gpg --generate-key --> Gerar chave.
+gpg -k ou gpg -K --> Ver suas chaves.
+gpg --armor --export EMAIL > chave-publica.asc --> Exportar chave pública.
+gpg --import chave.asc --> Importar uma chave.
+gpg -e -r usuario arquivo.txt --> Criptografar um arquivo usando chave pública de um destinatário.
+gpg -c arquivo.txt --> Criptografar usando uma senha (Sem chaves).
+gpg -d arquivo.txt.gpg --> Descriptografar.
+gpg --detach-sign arquivo.txt --> Assinar um arquivo.
+gpg --verify arquivo.txt.sig arquivo.txt --> Verifica uma assinatura digital feita sobre um arquivo.
+</pre>
+</body>
+</html>

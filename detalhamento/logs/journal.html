@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Logs do sistema</h1>
+<p></p>
+<h3>A maioria dos sistemas, incluindo sistemas baseados em Linux, registra eventos do sistema, conhecidos como logs. Esses 
+    registros são úteis para diagnosticar problemas, acompanhar o funcionamento do sistema e verificar eventos importantes, 
+    como falhas de serviço, erros de hardware e tentativas de autenticação.
+</h3>
+<h4>Curiosidade: Apesar do Linux ser referido a muitos como um sistema operacional, tecnicamente o Linux na verdade é um Kernel
+    que é responsável por gerenciar hardware e recursos do computador.
+</h4>
+<p></p>
+<h3>No DeByte ou em outras distros é possível você ler logs de três formas:</h3>
+<p></p>
+<h2>journalctl:</h2>
+<h3>A forma mais simples e moderna atualmente, abaixo estão os comandos:</h3>
+<pre>
+journalctl --> Exibe todos os logs.
+journalctl -b --> Exibe logs em relação ao boot.
+journalctl -u serviço --> Exibe logs em relação aos serviços.
+journalctl -p prioridade --> Exibe logs em relação a prioridade que você quer.
+journalctl --since "1 hour ago" --> Exibe logs em relação ao tempo, você pode colocar qualquer tempo sendo hora, minuto ou segundo.
+
+prioridades:
+
+emerg --> 0 --> Emergência, sistema inutilizável.
+alert --> 1 --> Situação crítica que exige ação imediata.
+crit --> 2 --> Erros críticos, como falhas graves de hardware ou software.
+err --> 3 --> Erros comuns.
+warning --> 4 --> Avisos.
+notice --> 5 --> Eventos importantes, mas considerados normais.
+info --> 6 --> Informações gerais sobre o funcionamento do sistema.
+debug --> 7 --> Mensagens detalhadas para depuração.
+</pre>
+<p></p>
+<h2>dmesg:</h2>
+<h3>Com este comando ele mostra as mensagens do Kernel, é útil para se quiser detectar hardware, problemas de drivers, dispositivos USB, discos
+    ou interface de rede.
+</h3>
+<p></p>
+<h2>/var/log:</h2>
+<h3>Muitos programas ou serviços ainda gravam logs diretamente em arquivos e bem no linux isso já possui até um
+    arquivo que é o /var, onde armazena logs. Abaixo terá alguns comandos mostrando como ler os logs:
+</h3>
+<pre>
+Caso queira visualizar:
+cat /var/log/nome-do-log
+
+Ou se quiser mais prático:
+less /var/log/nome-do-log
+
+Ou caso queira acompanhar em tempo real:
+tail -f /var/log/nome-do-log
+</pre>
+
+</body>
+</html>

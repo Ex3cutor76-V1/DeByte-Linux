@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeByte Blog</title>
+         <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Bem vindo ao DeByte Blog!:</h1>
+<h3>Por aqui você vai ver tanto notícias das melhorias no DeByte como também vai ver algumas
+ coisas   que o desenvolvedor está fazendo pela DeByte e alguns tutoriais.
+</h3>
+<p></p>
+<h2>Tutorial de 20/07/2026: Como desinstalar o tor?:</h2>
+<h3>O tor é um navegador secundário no DeByte, ele foi pré-instalado para uma função, que seria
+    dar ao user uma oportunidade de navegação anônima, mas, existem pessoas que não querem usar
+    o Tor Browser e está tudo bem, afinal, nem todo mundo quer tanta privacidade assim e aqui está 
+    um pequeno tutorial de como "desinstalar" o tor do DeByte:
+</h3>
+<pre>
+Apagar os arquivos do tor: sudo rm -rf /opt/tor-browser/
+</pre>
+<h3>Só nisso você já desinstala o Tor browser, afinal, ele é só um arquivo no DeByte, mas caso você 
+    queira também tirar o alias, use:
+</h3>
+<pre>nano ~/.bashrc</pre>
+<h3>E apague essa parte aqui:</h3>
+<pre>
+tor() {
+    if [ -d "/opt/tor-browser" ]; then
+        cd /opt/tor-browser && ./start-tor-browser.desktop --detach
+        cd ~
+    elif ls ~/Downloads/tor-browser*.tar.xz 2>/dev/null | head -1 | grep -q "."; then
+        echo "Extraindo Tor Browser..."
+        cd ~/Downloads
+        tar -xJf tor-browser*.tar.xz
+        cd tor-browser
+        ./start-tor-browser.desktop --detach
+        cd ~
+    else
+        echo "Tor Browser nao encontrado."
+        echo "Baixe em: https://www.torproject.org/download/"
+    fi
+}
+</pre>
+<h3>E caso você também queira apagar os serviços você pode usar:</h3>
+<pre>sudo apt purge tor torsocks -y
+    sudo apt autoremove --purge
+</pre>
+<h3>E isso é opcional, já que o Tor Browser é só o navegador e não esses serviços.</h3>
+<h3>Assim você apaga completamente o tor.</h3>
+
+</body>
+</html>
