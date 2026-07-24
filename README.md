@@ -16,3 +16,6 @@ sha256sum -c SHA256SUMS
 # Documentação
 Documentação completa da distribuição Linux em:
 [Documentação DeByte Linux](https://ex3cutor76-v1.github.io/DeByte-Linux/)
+
+## Colaboração
+- **Drastick123** (@Drastick123 - Agradeço por contribuir ao projeto DeByte Linux, por fazer a logo ASCII Art
