@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xterm</title>
+</head>
+<body>
+<h1>Configuração do Xterm:</h1>
+<p></p>    
+<h3>O Xterm no DeByte é um terminal de fall-back, no caso isso significa que se algo acontecer com o terminator 
+    a ponto dele não funcionar, o próprio Xterm vai te ajudar a resolver os problemas, uma vez que o Xterm não 
+    necessita de um dependência GTK igual o Terminator.
+</h3>
+<h2>Configuração de tema do Xterm:</h2>
+<pre>
+! DeByte Linux - Tema Xresources
+*background: #000000
+*foreground: #ffffff
+*cursorColor: #ffffff
+*faceName: Monospace
+*faceSize: 10
+*scrollBar: false
+! Desabilitar barra de rolagem lateral
+XTerm*scrollBar: false
+XTerm*rightScrollBar: false
+XTerm*saveLines: 5000    
+</pre>
+
+</body>
+</html>
