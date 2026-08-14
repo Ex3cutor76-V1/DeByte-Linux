@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC-Term</title>
+       <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>SOC-Term: A ferramenta de triagem</h1>
+<p></p>
+<h2>O que é o SOC-Term?:</h2>
+<h3>O SOC-Term é uma ferramenta feita para triagem de segurança em ambientes Linux, com foco em 
+    leveza e utilização de ferramentas do sistema.
+</h3>
+<p></p>
+<h2>O que o SOC-Term é capaz de fazer?:</h2>
+<pre>
+Análise de logs sendo:
+
+SSH;
+Sistema;
+Kernel;
+Serviços;
+
+Identificação de Rede:
+
+Serviços que usam portas UDP;
+Serviços que usam portas TCP;
+
+Monitoramento:
+
+Processos em execução;
+Serviços rodando em segundo plano;
+
+Arquivos:
+
+Extração de strings (Email, IP ou URL);
+Análise de hash (MD5, SHA256, e SHA512);
+Informações sobre um arquivo;
+
+Usuários:
+
+Identifica usuários humanos e usuários de serviços;
+
+Consultas:
+
+Consulta strings coletadas pela flag "-st";
+Consulta de logs coletadas pelas  flags envolvendo logs;
+</pre>
+<p></p>
+<h2>Dependências:</h2>
+<pre>
+unzip;
+lsof;
+file;
+iproute2;
+</pre>
+<p></p>
+<h2>Objetivo do SOC-Term:</h2>
+<h3>O objetivo do SOC-Term não é identificar malware, mas facilitar a análise de analistas de segurança, 
+    entregando informações que o analista se perguntaria primeiro, o SOC-Term coleta e entrega ao analista as 
+    informações que gostaria de descobrir.
+</h3>
+<p></p>
+<h2>Caso queira conhecer o projeto, pode vê-lo no github:</h2>
+<a href="https://github.com/Ex3cutor76-V1/SOC-Term">SOC-Term</a>
+</body>
+</html>

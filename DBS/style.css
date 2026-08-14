@@ -74,12 +74,9 @@ blockquote {
     color: #00ff00;
 }
 
-pre {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 16px;
-    overflow-x: auto;
-    font-family: monospace;
-    font-size: 14px;
-    border: 1px solid #333;
+header img {
+    width: 350px;
+    display: block;
+    margin: 0 auto;
+    image-rendering: pixelated;
 }
