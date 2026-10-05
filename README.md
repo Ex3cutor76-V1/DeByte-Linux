@@ -4,7 +4,7 @@
 Uma distribuição Linux baseada em Debian Trixie (Testing), com filosofia CLI-First Funcional (CFF) e foco em privacidade, segurança e simplicidade.
 
 # Download da iso
-Se quiser baixar vai na parte de releases, a iso se chama `debytex64-amd64.hybrid.iso`
+Existem 2 isos do DeByte, a da versão Server e a versão clássica (x86_64) e ambas podem ser instaladas direto da documentação da distro, na página "downloads".
 
 # Verificação
 Antes de instalar é recomendável que verifique a iso:
