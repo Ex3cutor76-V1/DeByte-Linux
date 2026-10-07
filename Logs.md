@@ -10,4 +10,14 @@
 
 - Os link's foram substituidos por link's permanentes do github.
 
+## V4.1 - 07/10/2026
+
+### Problema
+
+- Instalação do DPN (DeByte Network Protocol) falhava.
+- Atualizar o software DBS também falhava.
+
+### Correção
+
+- Foi alterado o nome dos dois repositórios, que estavam incorretos.
 
